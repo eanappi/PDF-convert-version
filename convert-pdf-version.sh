@@ -1,2 +1,9 @@
 #!/bin/bash
-find $1 -type f -name "*.pdf" -exec echo {} | tr $1 \;
+FILEPATH=$(pwd)
+
+cd $1
+
+for i in *
+do
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$FILEPATH/$2$i ./$i
+done
