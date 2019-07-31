@@ -1,19 +1,15 @@
 #!/bin/bash
-FILEPATH=$(pwd)
+if [[ $# -lt 2 ]]; then
+  echo "Faltan argumentos"
+else
+  cd $1
 
-cd $1
+  for i in *
+  do
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$2/$i ./$i
 
-for i in *
-do
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$FILEPATH/$2$i ./$i
+    echo -n "▓"
+  done
 
-  echo -n "▓"
-
-  # for symbols in \| / - \\ \| / -
-  # do 
-  #   echo -en "\r$i ($symbols)";
-  #   sleep .1
-  # done
-done
-
-echo -e "\nTHE END"
+  echo -e "\n >>>> THE END <<<<"
+fi
