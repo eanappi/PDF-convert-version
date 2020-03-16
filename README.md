@@ -1,5 +1,6 @@
 # Comando a usar:
-`convert-pdf-version SOURCE_PATH TARGET_PATH`
+ Debe crearse dos carpetas una **convert** y otra **source**
+`./convert-pdf-version.sh`
 
 # Los comandos utilizados son:
 ## Conversión de versión 1.2 a 1.4
